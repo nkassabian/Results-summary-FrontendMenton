@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main ng-app="resultsApp" ng-controller="resultsCtrl">
+      <div class="results-summary">
+        <div data-flow-space="lg" class="results flow-content">
+          <h1 class="results-section-title">Your Result</h1>
+          <p class="results-total-score"><span>76</span> of 100</p>
+          <div class="flow-content">
+            <p class="result-ranking">Great</p>
+            <p>
+              You scored higher than 65% of the people who have taken these
+              tests.
+            </p>
+          </div>
+        </div>
+        <div data-flow-space="lg" class="summary flow-content">
+          <h1 class="results-section-title">Summary</h1>
+          <div class="flow-content">
+            <div
+              class="results-item accent-{{$index+1}}"
+              ng-repeat="result in resultsData track by $index"
+            >
+              <div class="flex">
+                <img src="{{result.icon}}" alt="" />
+                <h4 class="results-item-title">{{result.category}}</h4>
+              </div>
+              <p class="results-items-score">
+                <span>{{result.score}} </span>/ 100
+              </p>
+            </div>
+          </div>
+          <button class="button">Continue</button>
+        </div>
+      </div>
+      <footer>
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="https://github.com/nkassabian">N Kssabian.</a>.
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
